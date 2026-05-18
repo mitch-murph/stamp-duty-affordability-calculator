@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(New-Item *)",
+      "WebSearch",
+      "WebFetch(domain:www.revenue.nsw.gov.au)",
+      "WebFetch(domain:www.sro.vic.gov.au)",
+      "WebFetch(domain:qro.qld.gov.au)",
+      "WebFetch(domain:www.revenuesa.sa.gov.au)",
+      "WebFetch(domain:www.wa.gov.au)",
+      "WebFetch(domain:www.revenue.act.gov.au)",
+      "WebFetch(domain:www.revenue.wa.gov.au)",
+      "WebFetch(domain:www.sro.tas.gov.au)",
+      "WebFetch(domain:nt.gov.au)",
+      "WebFetch(domain:wisebuygroup.com.au)"
+    ]
+  }
+}
