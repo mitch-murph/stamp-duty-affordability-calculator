@@ -39,7 +39,7 @@ export function WorkingOut({ deposit, duty, other, leftover, savings, animDeposi
       <div className="working-head">
         <h3>Working out</h3>
       </div>
-      <div className="working-rows" key={`${deposit}-${duty}`}>
+      <div className="working-rows">
         <WorkingRow label="Required deposit"    value={fmt(animDeposit)} delay={0} />
         <WorkingRow label="Stamp duty"           value={fmt(animDuty)}   delay={80}  op="+" />
         <WorkingRow label="Other costs"          value={fmt(other)}      delay={160} op="+" />
