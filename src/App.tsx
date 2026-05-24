@@ -48,7 +48,7 @@ export function App() {
           </div>
           <div className="brand-text">
             <h1 className="brand-title">Stamp Duty Affordability</h1>
-            <span className="brand-sub">Estimator · AU</span>
+            <span className="brand-sub">Calculator · AU</span>
           </div>
         </div>
       </header>
