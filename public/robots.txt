@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mitch-murph.github.io/stamp-duty-affordability-calculator/sitemap.xml

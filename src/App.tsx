@@ -43,8 +43,8 @@ export function App() {
             </svg>
           </div>
           <div className="brand-text">
-            <div className="brand-title">Stamp Duty Affordability</div>
-            <div className="brand-sub">Estimator · AU</div>
+            <h1 className="brand-title">Stamp Duty Affordability</h1>
+            <span className="brand-sub">Estimator · AU</span>
           </div>
         </div>
       </header>
@@ -65,11 +65,11 @@ export function App() {
           </div>
 
           <div className="field">
-            <div className="field-label">
+            <label className="field-label" htmlFor="input-savings">
               <span>Savings</span>
               <span className="field-hint">Total cash available, including deposit</span>
-            </div>
-            <MoneyInput value={savings} onChange={setSavings} max={5_000_000} />
+            </label>
+            <MoneyInput id="input-savings" value={savings} onChange={setSavings} max={5_000_000} />
             <Slider
               value={savings} onChange={setSavings}
               min={5000} max={500000} step={1000}
@@ -115,18 +115,18 @@ export function App() {
           </div>
 
           <div className="field">
-            <div className="field-label">
+            <label className="field-label" htmlFor="input-other-costs">
               <span>Other costs</span>
               <span className="field-hint">Conveyancing, inspections, LMI buffer</span>
-            </div>
-            <MoneyInput value={otherCosts} onChange={setOtherCosts} max={100000} />
+            </label>
+            <MoneyInput id="input-other-costs" value={otherCosts} onChange={setOtherCosts} max={100000} />
           </div>
         </section>
 
         {/* ── Results ── */}
         <section className="panel results-panel" aria-label="Results">
           <div className="results-head">
-            <div className="results-eyebrow">Estimated buying power</div>
+            <h2 className="results-eyebrow">Estimated buying power</h2>
             <div className="big-number" aria-live="polite" aria-atomic="true">
               <span className="big-currency">$</span>
               <span className="big-value mono">
