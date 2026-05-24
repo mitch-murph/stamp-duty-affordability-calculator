@@ -33,7 +33,7 @@ function fmt(n: number) {
   return '$' + Math.max(0, Math.round(n)).toLocaleString('en-AU');
 }
 
-export function WorkingOut({ deposit, duty, other, leftover, savings, animDeposit, animDuty }: Props) {
+export function WorkingOut({ other, leftover, savings, animDeposit, animDuty }: Props) {
   return (
     <div className="working">
       <div className="working-head">
