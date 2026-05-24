@@ -1,5 +1,14 @@
 import type { State, Bracket } from './types';
 
+export const CALCULATOR_URLS: Record<string, string> = {
+  NSW: 'https://www.apps09.revenue.nsw.gov.au/erevenue/calculators/landsalesimple.php',
+  VIC: 'https://www.sro.vic.gov.au/buying-property/land-transfer-stamp-duty/land-transfer-stamp-duty-calculator',
+  QLD: 'https://qro.qld.gov.au/duties/transfer-duty/calculate/transfer-duty-estimator/',
+  WA:  'https://www.wa.gov.au/service/financial-management/taxation-and-duty/calculate-your-transfer-duty',
+  SA:  'https://www.revenuesa.sa.gov.au/stamp-duty-land/calculate-stamp-duty',
+  TAS: 'https://www.sro.tas.gov.au/resources/tasmanian-revenue-online/property-transfer-duties/duty-transactions/calculate-property-transfer-duty',
+};
+
 export const STATES: State[] = [
   { code: 'NSW', name: 'New South Wales' },
   { code: 'VIC', name: 'Victoria' },

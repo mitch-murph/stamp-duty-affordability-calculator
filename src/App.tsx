@@ -1,10 +1,12 @@
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 import { StateSelect } from './components/StateSelect';
 import { MoneyInput } from './components/MoneyInput';
 import { Slider } from './components/Slider';
 import { CompositionBar } from './components/CompositionBar';
 import { WorkingOut } from './components/WorkingOut';
 import { calcAffordability } from './lib/calc';
+import { STATES, CALCULATOR_URLS } from './lib/schedules';
+import { useLocalStorage } from './hooks/useLocalStorage';
 import { useSpring } from './hooks/useSpring';
 
 const ACCENT = '#3d6b4a';
@@ -17,10 +19,10 @@ function fmtAUDsmall(n: number) {
 }
 
 export function App() {
-  const [stateCode, setStateCode] = useState('NSW');
-  const [savings, setSavings] = useState(150000);
-  const [depositPct, setDepositPct] = useState(10);
-  const [otherCosts, setOtherCosts] = useState(5000);
+  const [stateCode, setStateCode] = useLocalStorage('sd-state', 'NSW');
+  const [savings, setSavings] = useLocalStorage('sd-savings', 150000);
+  const [depositPct, setDepositPct] = useLocalStorage('sd-deposit-pct', 10);
+  const [otherCosts, setOtherCosts] = useLocalStorage('sd-other-costs', 5000);
 
   const result = useMemo(
     () => calcAffordability(savings, depositPct / 100, otherCosts, stateCode),
@@ -30,6 +32,8 @@ export function App() {
   const animProperty = useSpring(result.property);
   const animDeposit  = useSpring(result.deposit);
   const animDuty     = useSpring(result.duty);
+
+  const stateName = STATES.find(s => s.code === stateCode)!.name;
 
   return (
     <div className="app" style={{ '--accent': ACCENT } as React.CSSProperties}>
@@ -159,6 +163,23 @@ export function App() {
             animDeposit={animDeposit}
             animDuty={animDuty}
           />
+
+          <a
+            className="verify-link"
+            href={CALCULATOR_URLS[stateCode]}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Verify stamp duty on the official ${stateName} revenue calculator`}
+          >
+            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 2H2a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V7" />
+              <path d="M8 1h3m0 0v3m0-3L5 7" />
+            </svg>
+            Verify on {stateName} Revenue
+            <svg className="verify-arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3 7h8M7 3l4 4-4 4" />
+            </svg>
+          </a>
         </section>
       </main>
 
