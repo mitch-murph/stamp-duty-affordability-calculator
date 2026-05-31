@@ -129,6 +129,10 @@ body {
   align-items: start;
 }
 
+.layout > * {
+  min-width: 0;
+}
+
 @media (max-width: 920px) {
   .layout {
     grid-template-columns: 1fr;
@@ -507,15 +511,15 @@ body {
 }
 
 .big-currency {
-  font-size: 32px;
+  font-size: clamp(18px, 5.5vw, 32px);
   font-weight: 500;
   color: var(--muted);
-  margin-top: 14px;
+  margin-top: clamp(7px, 2.5vw, 14px);
   font-family: 'Geist Mono', ui-monospace, monospace;
 }
 
 .big-value {
-  font-size: 64px;
+  font-size: clamp(36px, 11vw, 64px);
   font-weight: 600;
   letter-spacing: -0.03em;
   color: var(--ink);
