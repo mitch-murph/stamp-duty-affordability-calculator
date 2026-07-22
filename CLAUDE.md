@@ -43,11 +43,11 @@ src/
 Brackets live in `src/lib/schedules.ts`. Format: `[upperBound, base, rate, marginalAbove]`.
 Special case: when `base === 0 && marginalAbove === 0`, the calc applies a **flat rate on the full price** (used for VIC's $960k–$2M bracket).
 
-### Verified sources (checked May 2026)
+### Verified sources (checked Jul 2026)
 
 | State | Source URL | Notes |
 |-------|-----------|-------|
-| NSW | revenue.nsw.gov.au/taxes-duties-levies-royalties/transfer-duty | Rates effective 1 Jul 2025; $20 min duty ignored (irrelevant for property) |
+| NSW | revenue.nsw.gov.au/taxes-duties-levies-royalties/transfer-duty | Rates effective FY2026/27 (annual CPI indexation); includes premium duty bracket above $3.87m; $20 min duty ignored (irrelevant for property) |
 | VIC | sro.vic.gov.au (non-PPR current rates) | Non-principal place of residence rates; PPR rates differ below $550k |
 | QLD | qro.qld.gov.au/duties/transfer-duty/calculate/rates/ | General rate; home concession rates are lower |
 | WA  | wa.gov.au general transfer duty | General rate |

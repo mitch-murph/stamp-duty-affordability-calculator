@@ -22,7 +22,7 @@ export const STATES: State[] = [
 // Excludes first-home buyer concessions, foreign buyer surcharges, and
 // off-the-plan concessions. For estimation only.
 //
-// Sources (verified 2025–26):
+// Sources (verified July 2026):
 //   NSW — revenue.nsw.gov.au/taxes-duties-levies-royalties/transfer-duty
 //   VIC — sro.vic.gov.au (non-principal place of residence rates)
 //   QLD — qro.qld.gov.au/duties/transfer-duty/calculate/rates/
@@ -38,14 +38,16 @@ export const STATES: State[] = [
 // When base === 0 && marginalAbove === 0: duty = price * rate (flat on full price)
 export const SCHEDULES: Record<string, Bracket[]> = {
   NSW: [
-    // Source: revenue.nsw.gov.au — rates effective 1 July 2025
+    // Source: revenue.nsw.gov.au — rates effective FY2026/27 (annual CPI indexation)
     // Note: $20 minimum duty applies below $1,600; irrelevant for property purchases.
-    [17000,    0,     0.0125, 0],
-    [37000,    212,   0.015,  17000],
-    [99000,    512,   0.0175, 37000],
-    [372000,   1597,  0.035,  99000],
-    [1240000,  11152, 0.045,  372000],
-    [Infinity, 50212, 0.055,  1240000],
+    // Premium duty bracket (residential) applies above $3,870,000 at 7.0%.
+    [18000,    0,      0.0125, 0],
+    [38000,    225,    0.015,  18000],
+    [103000,   525,    0.0175, 38000],
+    [387000,   1662,   0.035,  103000],
+    [1290000,  11602,  0.045,  387000],
+    [3870000,  52237,  0.055,  1290000],
+    [Infinity, 194137, 0.07,   3870000],
   ],
   VIC: [
     // Source: sro.vic.gov.au — non-PPR rates, effective 1 July 2021
